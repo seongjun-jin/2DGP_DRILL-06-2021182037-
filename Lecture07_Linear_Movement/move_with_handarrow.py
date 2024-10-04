@@ -19,10 +19,12 @@ def handle_events():
             running = False
 
 
+
 def random_hand_arrow():
+    global h_x, h_y
     h_x = random.randrange(0, 800)
     h_y = random.randrange(0, 600)
-    print(h_x, h_y)
+    hand_arrow.draw(h_x, h_y)
 
 def move_with_hand_arrow():
 
@@ -32,7 +34,12 @@ def move_with_hand_arrow():
 running = True
 
 while running:
+    clear_canvas()
+    TUK_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
+
     random_hand_arrow()
     #move_with_hand_arrow()
+
+    update_canvas()
     handle_events()
 
